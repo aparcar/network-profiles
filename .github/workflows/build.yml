@@ -1,0 +1,22 @@
+name: Build network profiles
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Debug
+        run: |
+          who
+          pwd
+          env
+
+      - uses: actions/checkout@v2
+
+      - name: Build
+        uses: aparcar/action-openwrt-sdk@master
+
+      - name: Result
+        run: ls -lisah && tree
